@@ -35,11 +35,11 @@ switch(+choice){
         break;
 
     case 3:
-        const num = prompt('Введите число', '');
+        const num1 = prompt('Введите число', '');
         console.log('Выбрана задача 3');
 
-        if (!isNaN(num)){
-            for (i = 0; i <= +num; i++)
+        if (!isNaN(num1)){
+            for (i = 0; i <= +num1; i++)
             {
                 if(i % 5 === 0 && i !== 0)
                 {
@@ -71,26 +71,78 @@ switch(+choice){
     case 5:
 
         let num = 76;
-        let numg = 0;
+        let numg = '0';
+        console.log('Выбрана задача 5');
 
-        while(numg !== num)
+        while(+numg !== num)
         {
             numg = prompt('Попробуйте отгадать число');
             if(!isNaN(numg))
             {
-                if(numg > nun) console.log('Ваще число больше');
-                if(numg < nun) console.log('Ваше число меньше');
+                if(+numg > num) console.log('Ваще число больше');
+                if(+numg < num) console.log('Ваше число меньше');
+            }else{
+                console.log('Вы ввели не число, попробуйте в следующий раз');
+                break;
             }
         }
-        
-        console.log('Выбрана задача 5');
+
+        if(+numg === num){
+            console.log('Угадано');
+        }
         break;
 
     case 6:
+        
         console.log('Выбрана задача 6');
+        
+        let n = prompt('Введите число n', '');
+        let x = prompt('Введите число x', '');
+        let y = prompt('Введите число y', '');
+
+        if(x>0 && y > 0 && n > 0){
+
+            if((+n%+x === 0) && (+n%+y === 0) && x>0 && y > 0 && n > 0){
+                console.log(`n = ${n}, x = ${x}, y = ${y} => true`);
+    
+            } else console.log(`n = ${n}, x = ${x}, y = ${y} => false`);
+        }
+
         break;
 
     case 7:
         console.log('Выбрана задача 7');
+
+        let m = prompt('Введите номер месяца', '');
+
+        if(+m<=12){
+
+            switch (+m){
+                case 1:
+                case 2:
+                case 3:
+                    console.log(`месяц ${m} => 1 квартал`);
+                    break;
+    
+                case 4:
+                case 5:
+                case 6:
+                    console.log(`месяц ${m} => 2 квартал`);
+                    break;
+    
+                case 7:
+                case 8:
+                case 9:
+                    console.log(`месяц ${m} => 3 квартал`);
+                    break;
+    
+                case 10:
+                case 11:
+                case 12:
+                    console.log(`месяц ${m} => 4 квартал`);
+                    break;
+            }
+        } else console.log('Неправильно введены данные');
+
         break;
 }
