@@ -68,11 +68,11 @@ switch(+choice){
             }
             return mass2;
         }
-
+        
         let mass = ['a', 'b', 'c' , 's', 'as'];
-        let kol = 4;
+        let kol = 3;
 
-        console.log(`sampleArray(${mass}, ${kol}) -> [${sampleArray(mass, 2)}]`);
+        console.log(`sampleArray(${mass}, ${kol}) -> [${sampleArray(mass, kol)}]`);
 
         break;
 
