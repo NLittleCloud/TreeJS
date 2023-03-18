@@ -63,13 +63,14 @@ switch(+choice){
 
             for(i = 1; i <= kol; i++)
             {
-                mass2.push(randomNumber(Math.min.apply(null, mass), Math.max.apply(null, mass)));
+              //  mass2.push(randomNumber(Math.min.apply(null, mass), Math.max.apply(null, mass)));
+                mass2.push(mass[randomNumber(0, mass.length-1)]);
             }
             return mass2;
         }
 
-        let mass = [1,2,3,4];
-        let kol = 2;
+        let mass = ['a', 'b', 'c' , 's', 'as'];
+        let kol = 4;
 
         console.log(`sampleArray(${mass}, ${kol}) -> [${sampleArray(mass, 2)}]`);
 
