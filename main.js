@@ -1,79 +1,71 @@
-const choice = prompt('Выберите номер задачи 1-5', '');
+const bt_modal = document.querySelector('.Mydialog_open');
+const modal = document.querySelector('.Mydialog');
+const bt_pass = document.getElementsByClassName('b01')[1];
+const password = document.getElementById("password");
+const email = document.getElementById("email");
+const error = document.getElementById("error");
+const form = document.querySelector('.FormRegistr');
 
-function randomNumber(min, max){
-    return Math.floor(Math.random() * (max - min+1) + min);
+bt_modal.addEventListener('click', () =>{
+	modal.showModal();
+});
+
+modal.addEventListener('click', (event) => {
+	if(event.target == modal) modal.close();
+});
+
+bt_pass.addEventListener('pointerdown', () =>{
+	password.type = "text"
+});
+
+bt_pass.addEventListener('pointerup', () =>{
+	password.type = "password"
+});
+
+email.onblur = function (){
+	if (email.validity.typeMismatch) {
+		error.innerHTML = "Please check the entered email!";
+		email.setCustomValidity("Please check the entered email!");
+	}
+	else if (email.validity.valueMissing){
+		error.innerHTML = "Please enter email!";
+		email.setCustomValidity("Please enter email!");
+	}
+	else
+	{
+		error.innerHTML = '';
+		email.setCustomValidity("");
+	}
 }
 
-switch(+choice){
-
-    case 1:
-
-        function convertSpeed(speed, type){
-            if (type == 'toMS')
-            {
-                return `convertSpeed(${speed}, '${type}') -> '${speed/3.6}' м/с`;
-            } else if (type == 'toKMH'){
-                return `convertSpeed(${speed}, '${type}') -> '${speed*3.6}' км/ч`;
-            }
-        }
-
-        console.log(convertSpeed(36, 'toMS'));
-        console.log(convertSpeed(36, 'toKMH'));
-        break;
-    
-    case 2:
-        function absValue(x){
-            if(x < 0) return -x;
-            else return x;
-        }
-        
-        let a = prompt('Введите число', '');
-
-        if(!isNaN(a)){
-            console.log(`absValue(${a}) -> ${absValue(a)}`);
-        }
-
-        break;
-
-    case 3:
-
-        let student = {
-            group: 201,
-            last_name: "Иванов",
-            first_name: "Иван"
-        };
-
-        console.log(`Список свойств: ${Object.keys(student).join(', ')}`);
-        console.log(`Студент ${student.first_name} ${student.last_name} учится в  ${student.group} группе`);
-        break;
-
-    case 4:
-
-        let min = +prompt('Введите минимальное число', '');
-        let max = +prompt('Введите максимальное число', '');
-
-        console.log(`randomNumber(${min},${max}) -> ${randomNumber(min,max)}`);
-        break;
-
-    case 5:
-
-        function sampleArray(mass, kol){
-
-            let mass2 = [];
-
-            for(i = 1; i <= kol; i++)
-            {
-              //  mass2.push(randomNumber(Math.min.apply(null, mass), Math.max.apply(null, mass)));
-                mass2.push(mass[randomNumber(0, mass.length-1)]);
-            }
-            return mass2;
-        }
-        
-        let mass = ['a', 'b', 'c' , 's', 'as'];
-        let kol = 3;
-
-        console.log(`sampleArray(${mass}, ${kol}) -> [${sampleArray(mass, kol)}]`);
-
-        break;
-
+password.onblur = function (){
+	if (password.validity.tooShort) {
+		error.innerHTML = "Password must not be less than 6 characters!";
+		password.setCustomValidity("Password must not be less than 6 characters!");
+	}
+	else if (password.validity.valueMissing){
+		error.innerHTML ="Please enter password!";
+		password.setCustomValidity("Please enter password!");
+	}
+	else
+	{
+		error.innerHTML = "";
+		password.setCustomValidity("");
+	}
 }
+
+form.addEventListener("submit", (event) =>{
+
+	let formData = new FormData(form);
+	//console.log(Array.from(formData));
+
+	for(let [key, value] of formData){
+		console.log(`${key}: ${value}`);
+	}
+
+	//console.log(`email: ${formData.get('email')}`);
+	//console.log(`password: ${formData.get('password')}`);
+
+	event.preventDefault();
+	modal.close();
+}) 

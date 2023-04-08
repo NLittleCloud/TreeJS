@@ -1,0 +1,60 @@
+:root{
+  --color-bg2: rgb(162, 195, 255);
+  --color-bg3: rgb(28, 18, 134);
+  --color-bt: rgba(240, 240, 250, 1);
+  --color-inp: rgb(211, 226, 255);
+  --color-inp2: rgb(57, 57, 175);
+  
+  font-size: 62.5%;
+  font-weight: 400;
+}
+
+.Mydialog{
+	border: 0;
+	border-radius: 10px;
+	padding: 0;
+  text-align: center;
+}
+
+.Mydialog::backdrop{
+	background-color: rgba(91, 147, 252, 0.15);
+}
+
+.FormRegistr{
+	display: flex;
+  flex-direction: column;
+	padding: 2rem;
+	background-color: var(--color-bg2);
+}
+
+::placeholder {
+  color: var(--color-inp2);
+}
+
+.FormRegistr input[type=password],
+input[type=email], input[type=text]{
+  background-color: var(--color-inp);
+  display: block; 
+  min-height: 4rem;
+  border: 0;
+  border-radius: 1rem;
+  padding: 0 1.81em;
+  margin-bottom: 1rem; 
+}
+
+.b01{
+	display: block;
+  color: var(--color-inp2);
+  background-color: var(--color-bt);
+  border: 0;
+  border-radius: 10px;
+  padding: 1em 1em;
+  min-height: 4rem;
+  margin-top: 1rem;
+}
+
+#error{
+  color: var(--color-bg3);
+  min-height: 1rem;
+  font-size: 1.2rem;
+}
