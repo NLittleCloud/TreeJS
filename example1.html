@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="threejs"></div>
+    <div class = "forms">
+      <div class = "light">
+        <form>
+          <p>Левый боковой - SpotLight</p>
+          <label><input type="radio" value="0.6" name="light" checked />Включить</label>
+          <label><input type="radio" value="0" name="light" />Выключить</label>
+        </form>
+        <form>
+          <p>Прямой свет - DirectionalLight</p>
+          <label><input type="radio" value="1" name="light" checked />Включить</label>
+          <label><input type="radio" value="0" name="light" />Выключить</label>
+        </form>
+        <form>
+          <p>Правый боковой - SpotLight</p>
+          <label><input type="radio" value="1" name="light" checked />Включить</label>
+          <label><input type="radio" value="0" name="light" />Выключить</label>
+        </form>
+      </div>
+      <div>
+        <form>
+          <p>Цвет икосаэдра</p>
+          <label><input type="radio" value= #99D5D0 name="color" checked />Голубой</label>
+          <label><input type="radio" value= #934662 name="color" />Бордовый</label>
+          <label><input type="radio" value= #658862 name="color" />Зеленый</label>
+          <label><input type="radio" value= #FFBD5C name="color" />Жёлтый</label>
+        </form>
+        <form>
+          <p>Цвет пирамиды</p>
+          <label><input type="radio" value= #99D5D0 name="color" checked />Голубой</label>
+          <label><input type="radio" value= #934662 name="color" />Бордовый</label>
+          <label><input type="radio" value= #658862 name="color" />Зеленый</label>
+          <label><input type="radio" value= #FFBD5C name="color" />Жёлтый</label>
+        </form>
+      </div>
+    </div>
+    <script src="three.js"></script>
+    <script src="STLloader.js"></script>
+    <script src="model.js"></script>
+  </body>
+</html>
